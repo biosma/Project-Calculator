@@ -7,6 +7,7 @@ let firstInput = "";
 let secondInput = "";
 let operand = "";
 let dotted = false;
+let result = "";
 let clearAll = document.getElementById("clear-all-button");
 let clearLast = document.getElementById("clear-last-button");
 
@@ -60,7 +61,8 @@ function addOp(e){
             secondInput = "";
             operand = "";
         }
-        screenNum.innerHTML = operate(firstInput, secondInput, operand);
+        screenNum.innerHTML = Math.round(operate(firstInput, secondInput, operand) * 1000) / 1000;
+        result = screenNum.innerHTML;
         secondInput = "";
         operand = "";
     }
@@ -85,11 +87,13 @@ function clearAllF(){
 clearLast.addEventListener("click", clearLastF)
 
 function clearLastF(){
-    if(screenNum.innerHTML.charAt(screenNum.innerHTML.length - 1) == "."){
+    if(screenNum.innerHTML.charAt(screenNum.innerHTML.length - 1) == "." && result != screenNum.innerHTML){
     dotted = false;
     screenNum.innerHTML = screenNum.innerHTML.slice(0, -1);
-    }else{
+    }else if(result != screenNum.innerHTML){
     screenNum.innerHTML = screenNum.innerHTML.slice(0, -1);
+}else{
+    return screenNum.innerHTML;
 }
 }
 
@@ -106,8 +110,9 @@ function handleEqual(){
         secondInput = "";
         operand = "";
     }
-    screenNum.innerHTML = operate(firstInput, secondInput, operand);
+    screenNum.innerHTML = Math.round(operate(firstInput, secondInput, operand) * 1000) / 1000
     screenOp.innerHTML = firstInput + operand + secondInput + "=";
+    result = screenNum.innerHTML;
     firstInput = "";
     secondInput = "";
     operand = ""; 
