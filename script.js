@@ -38,13 +38,15 @@ function handleKeyboardInput(e){
 numButtons.forEach((button) => button.addEventListener("click", addNum));
 
 function addNum(e){
-        if(e.target.value=="." && dotted==false){
+        if(e.target.value=="." && dotted==false && result == ""){
             screenNum.innerHTML += e.target.value;
             dotted = true;
         } else if(dotted == true && e.target.value == "."){
             return screenNum.innerHTML;
-        } else{
+        } else if (result == ""){
             screenNum.innerHTML += e.target.value;
+        }else{
+            return screenNum.innerHTML;
         }
 }
 
@@ -69,6 +71,7 @@ function addOp(e){
     operand = e.target.value;
     firstInput = screenNum.innerHTML;
     dotted = false;
+    result = "";
     screenOp.innerHTML = firstInput + operand;
     screenNum.innerHTML = "";
 }
@@ -130,6 +133,9 @@ function times(a, b){
 function divide(a, b){
     return (a / b);
 }
+function percent(a, b){
+    return (a/100)*b;
+}
 function operate(a, b, op){
     a = Number(a)
     b = Number(b)
@@ -143,6 +149,9 @@ function operate(a, b, op){
         case '/':
             if(b === 0) return null
             else return divide(a, b);
+        case "%":
+            if(b === 0) return null
+            else return percent(a, b);
         default:
             return null;    
     }
