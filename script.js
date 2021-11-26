@@ -19,12 +19,17 @@ function handleKeyboardInput(e){
         if(e.which == 55){
             return document.getElementById("divide").click();
         }else if(e.which == 171){
-            return document.getElementById("times").click()
+            return document.getElementById("times").click();
+        }else if(e.which == 53){
+            return document.getElementById("percent").click();
         }
-    }else if(e.shiftKey == false && (e.which == 171 || e.which == 173)){
+    }else if(e.shiftKey == false && (e.which == 171 || e.which == 173 || e.which == 53)){
         if(e.which == 171){
             return document.getElementById("add").click();
-        }else{
+        }else if(e.which == 53){
+            return document.getElementById("5").click()
+        }
+        else{
             return document.getElementById("subtract").click();
         }
     }else{
