@@ -84,6 +84,7 @@ function clearAllF(){
     firstInput = "";
     secondInput = "";
     operand = "";
+    result = "";
     dotted = false;
 }
 
