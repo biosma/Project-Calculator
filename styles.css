@@ -23,10 +23,11 @@ body {
     height: 75vh;
     min-height: 500px;
     padding: 10px;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .shape, .shape-2{
     min-width: 300px;
+    min-height: 300px;
 }
 .shape{
     content: "";
@@ -34,8 +35,8 @@ body {
     z-index: -5;
     width: 300px;
     height: 300px;
-    top: -6.5rem;
-    left: 20rem;
+    top: -6rem;
+    left: 12rem;
     background-color: #F9974E;
     border: 1px solid #f18736;
     border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
@@ -46,14 +47,14 @@ body {
     z-index: -5;
     width: 300px;
     height: 300px;
-    top: 3.5rem;
-    left: -20rem;
+    top: 4.5rem;
+    left: -13rem;
     background-color: #7CABBB;
     border: 1px solid #60a3b9;
     border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
 }
 .conteiner{
-    position: relative;
+    position: absolute;
     z-index: 5;
     height: 530px;
     width: 360px;
@@ -67,6 +68,8 @@ body {
 	backdrop-filter: blur(10px);
     border: 2px solid #ffffff;
     border-radius: 20px;
+    box-shadow: inset 0px 0px 0px 2px #b1b1b1,
+                1px 1px 11px -10px #000000;
 }
 .brand{
     display: flex;
@@ -136,7 +139,7 @@ body {
     border-radius: 25px;
 }
 .footer {
-    position: relative;
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -149,4 +152,17 @@ body {
     left: 0;
     gap: 10px;
     padding: 10px;
+    margin-top: 20px;
+  }
+  @media (max-width: 767.98px){
+      .conteiner{
+          position: relative;
+      }
+      .shape, .shape-2{
+          display: none;
+      }
+      .footer{
+          font-size: 16px;
+          position: relative;
+      }
   }
